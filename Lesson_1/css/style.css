@@ -1,0 +1,39 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.clr{
+	content: ' ';
+	clear: both;
+	display: block;
+}
+
+.container{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+header{
+	height: 40px;
+	background-color: #F0F0F0;
+}
+
+.cart-button {
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.goods-list{
+	margin: 20px -10px;
+}
+
+.goods-item{
+	float: left;
+	padding: 10px;
+	box-sizing: border-box;
+	width: 25%;
+	text-align: center;
+}
+
