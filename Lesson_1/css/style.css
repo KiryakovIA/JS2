@@ -1,4 +1,4 @@
-*{
+html, body{
 	margin: 0;
 	padding: 0;
 }
@@ -10,8 +10,10 @@
 }
 
 .container{
-	width: 1000px;
+	max-width: 1000px;
 	margin: 0 auto;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 header{
@@ -27,13 +29,19 @@ header{
 
 .goods-list{
 	margin: 20px -10px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .goods-item{
-	float: left;
+	font-size: 14px;
+	line-height: 1;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin: 10px;
 	padding: 10px;
 	box-sizing: border-box;
-	width: 25%;
+	width: 150px;
 	text-align: center;
 }
 
