@@ -1,21 +1,19 @@
 class Ingredient {
-    constructor(id, category, name, price, kkal) {
+    constructor(id, price, kkal) {
         this.id = id;
-        this.category = category; // 1 - размер гамбургера, 2 - начинка, 3 - добавка
-        this.name = name;
         this.price = price;
         this.kkal = kkal;
     }
 }
 
 const ingredients = [
-    new Ingredient(1, 1, "Маленикий", 50, 20),
-    new Ingredient(2, 1, "Большой", 100, 40),
-    new Ingredient(3, 2, "Сыр", 10, 20),
-    new Ingredient(4, 2, "Салат", 20, 5),
-    new Ingredient(5, 2, "Картофель", 15, 10),
-    new Ingredient(6, 3, "Приправа", 15, 0),
-    new Ingredient(7, 3, "Майонез", 20, 5)
+    new Ingredient("small", 50, 20),
+    new Ingredient("big", 100, 40),
+    new Ingredient("cheese", 10, 20),
+    new Ingredient("salad", 20, 5),
+    new Ingredient("potato", 15, 10),
+    new Ingredient("spice", 15, 0),
+    new Ingredient("mayonnaise", 20, 5)
 ];
 
 class Hamburger {
@@ -56,4 +54,14 @@ class Hamburger {
     calculateCalories() {
         return this.size.kkal + this.stuffing.kkal + this.toppings.reduce((res, topping) => res += topping.kkal, 0);
     }
+}
+
+document.getElementById('submit').onclick = event => {    
+    let size = ingredients.find(it => it.id == document.querySelector('input[name="size"]:checked').id);
+    let stuffing = ingredients.find(it => it.id == document.querySelector('input[name="stuffing"]:checked').id);
+    document.querySelectorAll('input[name="topping"]:checked')
+    
+    let hamburger = new Hamburger(size, stuffing);
+    document.querySelector('#price').innerHTML = hamburger.calculatePrice();
+    document.querySelector('#calories').innerHTML = hamburger.calculateCalories();
 }

@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    width: 400px;
+    margin: 20px auto 0;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+legend {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold
+}
+
+fieldset > div {
+    padding: 10px;
+    //border-bottom: 1px solid black;
+}
+
+.size,
+.staffing,
+.topping {
+    border-bottom: 3px solid #ccc;
+}
+
+input {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.submit {
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+}

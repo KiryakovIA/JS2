@@ -1,37 +1,48 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Hamburger</title>
+    <meta charset="UTF-8">
+    <title>Hamburger</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div id="calculator">
-        <label>
-            Размер:
-            <select id="size">
-                <option value="1">Маленький</option>
-                <option value="2">Большой</option>
-            </select>
-        </label>
-        <label>
-            Начинка:
-            <select id="stuffing">
-                <option value="3">Сыр</option>
-                <option value="4">Салат</option>
-                <option value="5">Картофель</option>
-            </select>
-        </label>
-        <label>
-            Приправа:
-            <input type="checkbox" id="6">
-        </label>
-        <label>
-            Майонез:
-            <input type="checkbox" id="7">
-        </label>
-        <button id="submit">Рассчитать</button>
+
+        <fieldset>
+            <legend>Создайте свой гамбургер</legend>
+            <div class="size">
+                <h3>Размер:</h3>
+                <input type="radio" name="size" id="small" checked>
+                <label for="small">Маленький</label>
+                <input type="radio" name="size" id="big">
+                <label for="big">Большой</label>
+            </div>
+            <div class="stuffing">
+                <h3>Начинка:</h3>
+                <input type="radio" name="stuffing" id="cheese" checked>
+                <label for="cheese">Сыр</label>
+                <input type="radio" name="stuffing" id="salad">
+                <label for="salad">Салат</label>
+                <input type="radio" name="stuffing" id="potato">
+                <label for="potato">Картофель</label>
+            </div>
+            <div class="topping">
+                <h3>Дополнительно:</h3>
+                <input type="checkbox" name="topping" id="spice">
+                <label for="spice">Приправа</label>
+                <input type="checkbox" name="topping" id="mayonnaise">
+                <label for="mayonnaise">Майонез</label>
+            </div>
+            <div class="submit">
+                <button id="submit">Рассчитать</button>
+            </div>
+        </fieldset>
         <p id="price"></p>
         <p id="calories"></p>
     </div>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
