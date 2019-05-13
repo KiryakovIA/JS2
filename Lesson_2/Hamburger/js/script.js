@@ -16,6 +16,8 @@ const ingredients = [
     new Ingredient("mayonnaise", 20, 5)
 ];
 
+getIngredientById = (id) => ingredients.find(it => it.id == id);
+
 class Hamburger {
     constructor(size, stuffing) {
         this.size = size;
@@ -57,11 +59,15 @@ class Hamburger {
 }
 
 document.getElementById('submit').onclick = event => {    
-    let size = ingredients.find(it => it.id == document.querySelector('input[name="size"]:checked').id);
-    let stuffing = ingredients.find(it => it.id == document.querySelector('input[name="stuffing"]:checked').id);
-    document.querySelectorAll('input[name="topping"]:checked')
-    
+    let size = getIngredientById(document.querySelector('input[name="size"]:checked').id);
+    let stuffing = getIngredientById(document.querySelector('input[name="stuffing"]:checked').id);
     let hamburger = new Hamburger(size, stuffing);
+	document.querySelectorAll('input[name="topping"]:checked').forEach(it => {
+		let topping = getIngredientById(it.id);
+		hamburger.addTopping(topping);
+	});
     document.querySelector('#price').innerHTML = hamburger.calculatePrice();
     document.querySelector('#calories').innerHTML = hamburger.calculateCalories();
 }
+																	   
+																	   
