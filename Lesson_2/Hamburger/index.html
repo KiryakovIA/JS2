@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Hamburger</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div id="calculator">
+		<fieldset>
+			<legend>Создайте свой гамбургер</legend>
+			<div class="size">
+				<h3>Размер:</h3>
+				<input type="radio" name="size" id="small" checked>
+				<label for="small">Маленький</label>
+				<input type="radio" name="size" id="big">
+				<label for="big">Большой</label>
+			</div>
+			<div class="stuffing">
+				<h3>Начинка:</h3>
+				<input type="radio" name="stuffing" id="cheese" checked>
+				<label for="cheese">Сыр</label>
+				<input type="radio" name="stuffing" id="salad">
+				<label for="salad">Салат</label>
+				<input type="radio" name="stuffing" id="potato">
+				<label for="potato">Картофель</label>
+			</div>
+			<div class="topping">
+				<h3>Дополнительно:</h3>
+				<input type="checkbox" name="topping" id="spice">
+				<label for="spice">Приправа</label>
+				<input type="checkbox" name="topping" id="mayonnaise">
+				<label for="mayonnaise">Майонез</label>
+			</div>
+			<div class="submit">
+				<button id="submit">Рассчитать</button>
+
+			</div>
+			<div class="result">
+				<h3>Итого:</h3>
+				<p><span id="price">?</span> руб., <span id="calories">?</span> ккал</p>
+			</div>
+		</fieldset>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+
+</html>

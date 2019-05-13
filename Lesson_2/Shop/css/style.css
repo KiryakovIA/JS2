@@ -1,0 +1,47 @@
+html, body{
+	margin: 0;
+	padding: 0;
+}
+
+.clr{
+	content: ' ';
+	clear: both;
+	display: block;
+}
+
+.container{
+	max-width: 1000px;
+	margin: 0 auto;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+header{
+	height: 40px;
+	background-color: #F0F0F0;
+}
+
+.cart-button {
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.goods-list{
+	margin: 20px -10px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.goods-item{
+	font-size: 14px;
+	line-height: 1;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	width: 150px;
+	text-align: center;
+}
+

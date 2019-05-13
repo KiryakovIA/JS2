@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "задача-style",
+      "appliesTo": "css/style.css",
+      "type": "launch"
+    }
+  ]
+}
