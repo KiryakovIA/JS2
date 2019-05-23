@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>eShop</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div id="app" class="container">
+		<header>
+			<form class="search-form" @submit="searchForm_OnSubmit">
+				<input class="goods-search" type="text" v-model="searchLine">
+				<button type="submit" class="search-button">Искать</button>
+			</form>
+			<button class="cart-button" @click="cartButton_OnClick">Корзина</button>
+		</header>
+		<main>
+			<h2>Каталог</h2>
+			<div class="goods-list">
+				<p v-if="filteredGoods.length == 0">Нет данных</p>
+				<div class="goods-item" v-for="good in filteredGoods">
+					<h3>{{ good.product_name }}</h3>
+					<p>{{ good.price }}</p>
+					<button :data-id="good.id_product" class="add-to-cart" @click="addToCart_OnClick">Добавить в корзину</button>
+				</div>
+			</div>
+
+			<div class="cart" v-if="isVisibleCart">
+				<h2>Корзина</h2>
+				<div class="cart-items">
+					<p v-if="cart.countGoods == 0">Корзина пуста</p>
+					<div class="cart-item" v-for="cartItem in cart.contents">
+						<h3>{{cartItem.product_name}}</h3>
+						<p>{{cartItem.price}}</p>
+						<p>Количество: {{cartItem.quantity}}</p>
+					</div>
+				</div>
+				<h3 class="amount">Итого: {{cart.amount}}</h3>
+			</div>
+		</main>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<script src="js/script.js"></script>
+</body>
+
+</html>
