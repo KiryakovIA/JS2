@@ -53,10 +53,10 @@ const app = new Vue({
 			this.isVisibleCart = !this.isVisibleCart;
 		},
 
-		addToCart_OnClick(e) {
+		addToCart_OnClick(e, id_product) {
 			e.preventDefault();
-			const id = e.target.getAttribute("data-id");
-			const product = this.goods.find(item => item.id_product == id)
+			//const id = e.target.getAttribute("data-id");
+			const product = this.goods.find(item => item.id_product == id_product)
 			this.addToCart(product);
 		},
 
