@@ -39,11 +39,6 @@ const app = new Vue({
 	},
 
 	methods: {
-		searchForm_OnSubmit(e) {
-			e.preventDefault();
-			this.filterGoods();
-		},
-
 		filterGoods() {
 			const regexp = new RegExp(this.searchLine, "i")
 			this.filteredGoods = this.goods.filter(good => regexp.test(good.product_name));
