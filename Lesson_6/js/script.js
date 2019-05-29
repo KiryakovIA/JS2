@@ -28,9 +28,16 @@ function makeGETRequest(url) {
 
 Vue.component('goods-list', {
 	props: ['goods'],
+	computed: {
+		empty() {
+			return this.goods.length === 0;
+		}
+	},
+
 	template: `
 		<div class="goods-list">
-		  <goods-item v-for="good in goods" :good="good" :key="good.id_product"></goods-item>
+			<p v-if="empty">Нет данных</p>
+			<goods-item v-for="good in goods" :good="good" :key="good.id_product"></goods-item>
 		</div>`
 });
 
@@ -41,6 +48,37 @@ Vue.component('goods-item', {
 		  <h3>{{ good.product_name }}</h3>
 		  <p>{{ good.price }}</p>
 		</div>`
+});
+
+Vue.component('cart', {
+	props: ['cart'],
+	template: `
+			<div class="cart">
+				<h2>Корзина</h2>
+				<div class="cart-items">
+					<cart-item v-for="cartItem in cart.contents" :cartItem="cartItem" :key="cartItem.id_product"></cart-item>
+				</div>
+				<h3 class="amount">Итого: {{cart.amount}}</h3>
+			</div>`
+});
+
+Vue.component('cart-item', {
+	props: ['cartItem'],
+	template: `
+		<div class="cart-item">
+			<h3>{{cartItem.product_name}}</h3>
+			<p>{{cartItem.price}}</p>
+			<p>Количество: {{cartItem.quantity}}</p>
+		</div>`
+});
+
+Vue.component('search-form', {
+	props: ['value'],
+	template: `
+		<form class="search-form" @submit.prevent="$emit('filter')">
+			<input class="goods-search" type="text" :value="value" @input="$emit('input', $event.target.value)">
+			<button type="submit" class="search-button">Искать</button>
+		</form>`
 });
 
 const app = new Vue({
@@ -67,7 +105,6 @@ const app = new Vue({
 
 		addToCart_OnClick(e, id_product) {
 			e.preventDefault();
-			//const id = e.target.getAttribute("data-id");
 			const product = this.goods.find(item => item.id_product == id_product)
 			this.addToCart(product);
 		},
