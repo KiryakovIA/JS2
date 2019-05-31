@@ -9,6 +9,7 @@
 <body>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 	<div id="app" class="container">
+		<error-message :message="message" @close="closeError" v-if="isVisibleError"></error-message>
 		<header>
 			<search-form v-model="searchLine" @filter="filterGoods"></search-form>
 			<button class="cart-button" @click="cartButton_OnClick">Корзина</button>

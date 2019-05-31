@@ -67,3 +67,17 @@ button {
 	padding: 20px;
 	border-radius: 4px;
 }
+
+.error-message {
+	position: fixed;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 1px solid red;
+	width: 300px;
+	min-height: 60px;
+	z-index: 500;
+	border-radius: 4px;
+	padding: 20px;
+	box-sizing: border-box;
+}

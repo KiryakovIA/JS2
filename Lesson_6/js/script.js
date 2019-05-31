@@ -81,16 +81,33 @@ Vue.component('search-form', {
 		</form>`
 });
 
+Vue.component('error-message', {
+	props: ['message'],
+	methods: {
+		setCloseTimeOut() {
+			setTimeout(() => {
+				this.$emit('close');
+			}, 3000);
+		}
+	},
+	mounted() {
+		this.setCloseTimeOut();
+	},
+	template: `<div class="error-message">{{message}}</div>`,
+});
+
 const app = new Vue({
 	el: '#app',
 
 	data: {
 		goods: [],
 		filteredGoods: [],
+		message: '',
 		searchLine: '',
 
 		cart: [],
-		isVisibleCart: false
+		isVisibleCart: false,
+		isVisibleError: false
 	},
 
 	methods: {
@@ -113,6 +130,14 @@ const app = new Vue({
 			makeGETRequest(`${API_URL}/addToBasket.json`).then(() => {
 				console.log(product.product_name)
 			}).catch(err => console.error(err))
+		},
+
+		showError() {
+			this.isVisibleError = true;
+		},
+
+		closeError() {
+			this.isVisibleError = false;
 		}
 	},
 
@@ -120,6 +145,9 @@ const app = new Vue({
 		makeGETRequest(`${API_URL}/catalogData.json`).then(responseText => {
 			this.goods = JSON.parse(responseText);
 			this.filteredGoods = this.goods;
+		}).catch(err => {
+			this.message = err;
+			this.showError();
 		});
 		makeGETRequest(`${API_URL}/getBasket.json`).then(responseText => {
 			this.cart = JSON.parse(responseText);
